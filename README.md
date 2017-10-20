@@ -15,6 +15,7 @@
  * https://www.europeanpaymentscouncil.eu/document-library?qry=&sort_by=created&sort_order=DESC&kb%5B0%5D=type%3A86
  * CBIBdyPaymentRequest.00.04.00
  * http://www.sepa.hr/wp-content/uploads/2015/12/SCT-Implementation-Guidelines-pain.001.pdf
+ * https://www.europeanpaymentscouncil.eu/document-library?qry=&sort_by=created&sort_order=DESC&kb%5B0%5D=type%3A86
 
 Le specifiche CBI del bonifico XML SEPA (versione 00.04.00) si basano sul messaggio ISO20022 pain.001.001.03 e sono compliant al Rulebook SEPA. Il messaggio pain.001.001.03 non è stato utilizzato integralmente, essendo strutturato in maniera tale da poter essere applicabile ad una pletora molto estesa di casistiche e di soggetti.
 (http://www.cbi-org.eu/Engine/RAServePG.php/P/313010010301)
