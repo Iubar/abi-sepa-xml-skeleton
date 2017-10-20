@@ -37,7 +37,8 @@ Le specifiche CBI del bonifico XML SEPA (versione 00.04.00) si basano sul messag
   * http://help.hipay.com/mobile/Knowledgebase/Article/View/22/0/how-to-test-sepa-direct-debit-sdd-payments
   * https://www.unit4tech.it/sepa/verificasepa.jsp?noheader
   * http://www.unit4.com/it/tool/verificasepa
-  *http://www.cbiservice.com/correttoresepa.php
+  * http://www.cbiservice.com/correttoresepa.php
+  * https://secure.sepaeditor.com/authent.php?langue=i8&tarif=0
   
   
  # Forum
