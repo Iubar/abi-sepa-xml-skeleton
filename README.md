@@ -10,7 +10,7 @@
  Gestione SCT (SEPA Credit Transfers)
  
  # Standard
- * http://www.cbi-org.eu/Engine/RAServePG.php/P/260710010313 (!)
+ * http://www.cbi-org.eu/Engine/RAServePG.php/P/260710010313 (! user: borgogelli pass: solita)
  * http://www.sepaitalia.eu/welcome.asp?Page=2520&chardim=0&a=a&langid=1
  * https://www.europeanpaymentscouncil.eu/document-library?qry=&sort_by=created&sort_order=DESC&kb%5B0%5D=type%3A86
  * CBIBdyPaymentRequest.00.04.00
