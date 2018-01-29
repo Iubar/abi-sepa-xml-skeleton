@@ -10,11 +10,12 @@
  Gestione SCT (SEPA Credit Transfers)
  
  # Standard
- * http://www.cbi-org.eu/Engine/RAServePG.php/P/260710010313 (!)
+ * http://www.cbi-org.eu/Engine/RAServePG.php/P/260710010313 (! user: borgogelli pass: solita)
  * http://www.sepaitalia.eu/welcome.asp?Page=2520&chardim=0&a=a&langid=1
  * https://www.europeanpaymentscouncil.eu/document-library?qry=&sort_by=created&sort_order=DESC&kb%5B0%5D=type%3A86
  * CBIBdyPaymentRequest.00.04.00
  * http://www.sepa.hr/wp-content/uploads/2015/12/SCT-Implementation-Guidelines-pain.001.pdf
+ * https://www.europeanpaymentscouncil.eu/document-library?qry=&sort_by=created&sort_order=DESC&kb%5B0%5D=type%3A86
 
 Le specifiche CBI del bonifico XML SEPA (versione 00.04.00) si basano sul messaggio ISO20022 pain.001.001.03 e sono compliant al Rulebook SEPA. Il messaggio pain.001.001.03 non è stato utilizzato integralmente, essendo strutturato in maniera tale da poter essere applicabile ad una pletora molto estesa di casistiche e di soggetti.
 (http://www.cbi-org.eu/Engine/RAServePG.php/P/313010010301)
@@ -37,7 +38,8 @@ Le specifiche CBI del bonifico XML SEPA (versione 00.04.00) si basano sul messag
   * http://help.hipay.com/mobile/Knowledgebase/Article/View/22/0/how-to-test-sepa-direct-debit-sdd-payments
   * https://www.unit4tech.it/sepa/verificasepa.jsp?noheader
   * http://www.unit4.com/it/tool/verificasepa
-  *http://www.cbiservice.com/correttoresepa.php
+  * http://www.cbiservice.com/correttoresepa.php
+  * https://secure.sepaeditor.com/authent.php?langue=i8&tarif=0
   
   
  # Forum
