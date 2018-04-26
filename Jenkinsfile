@@ -31,11 +31,14 @@ pipeline {
         }
     }
 	post {
-        always {
-            echo 'Cleaning the workspace...'
-            deleteDir()
+        changed {
+        	echo "CURRENT STATUS: ${currentBuild.currentResult}"
+            sh "curl -i -X GET ${env.TELEGRAM_URL}\\&text=JENKINS:%20Status%20of%20${JOB_NAME}%20is%20changed%20to%20${currentBuild.currentResult}"
+        }
+		cleanup {
+			deleteDir()
 			dir("${env.WORKSPACE}@tmp") {
-			  echo 'Cleaning ${env.WORKSPACE}@tmp ...'
+				echo 'Cleaning ${env.WORKSPACE}@tmp'
 			  deleteDir()
 			}
         }
