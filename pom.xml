@@ -29,4 +29,10 @@
       		<scope>test</scope>
     	</dependency>
   	</dependencies>
+  	<scm>
+  		<tag>${project.version}</tag>
+		<connection>scm:git:git://github.com/iubar/${project.artifactId}.git</connection> 
+		<developerConnection>scm:git:git://github.com/iubar/${project.artifactId}.git</developerConnection> 
+		<url>https://github.com/iubar/abi-sepa-hello</url>
+	</scm>
 </project>
