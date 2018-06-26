@@ -1,3 +1,5 @@
+## Progetto in attesa di essere integrato in PagheOpen
+
 # Intro 
 * http://www.cbi-org.eu/Engine/RAServePG.php/P/307710010301
 * http://www.cbi-org.eu/Engine/RAServeFile.php/f/Documenti/Webinar%20SEPA/Risposte%20quesiti_webinar%20CBI_20012016_v7_CBI_BI_clean%20last.pdf
