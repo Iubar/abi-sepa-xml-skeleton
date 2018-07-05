@@ -1,42 +1,24 @@
-<<<<<<< HEAD
-=======
-// iubar-auto-update
->>>>>>> 59ffa94a8d1698d285f67b62b9b4077779c57707
 pipeline {
     agent {    
     	docker {   	
     		image 'iubar-maven-alpine'
     		label 'docker'
-<<<<<<< HEAD
     		args '-v $HOME/.m2:/home/jenkins/.m2:rw,z'
     	} 
     }
     stages {
 		stage ('Upstream build') {
 			steps {
-				build job: 'iubar-gcalendar'
+				build job: 'iubar-db'
 			}
 		}
-        stage ('Build') {
+		stage ('Build') {
             steps {
-=======
-    		args '-e MAVEN_CONFIG=/home/jenkins/.m2 -v $HOME/.m2:/home/jenkins/.m2:rw,z'
-    	} 
-    }
-    stages {
-        stage ('Build') {
-            steps {
-            	echo 'Building...'
->>>>>>> 59ffa94a8d1698d285f67b62b9b4077779c57707
                 sh 'mvn -B -DskipTests=true clean package'
             }
         }
 		stage('Test') {
             steps {
-<<<<<<< HEAD
-=======
-            	echo 'Testing...'
->>>>>>> 59ffa94a8d1698d285f67b62b9b4077779c57707
                 sh 'mvn -B -Djava.io.tmpdir=${WORKSPACE}@tmp -Djava.awt.headless=true test'
             }
             post {
@@ -45,7 +27,6 @@ pipeline {
                 }
             }
         }
-<<<<<<< HEAD
         stage('Analyze') {
             steps {
 				script {
@@ -56,7 +37,7 @@ pipeline {
 					}
 				}
             }
-        }
+        }		
         stage('Quality gate') {
             environment { 
 				SONAR_PROJECTKEY = 'java:abi-sepa-hello'
@@ -82,19 +63,6 @@ pipeline {
                 sh 'mvn -B -DskipTests=true deploy'
             }
         }		
-=======
-		stage ('Deploy') {
-            steps {
-            	echo 'Deploying...'
-                sh 'mvn -B -DskipTests=true jar:jar deploy:deploy'
-            }
-        }
-        stage('Analyze') {
-            steps {
-                sh 'sonar-scanner'
-            }
-        }
->>>>>>> 59ffa94a8d1698d285f67b62b9b4077779c57707
     }
 	post {
         changed {
