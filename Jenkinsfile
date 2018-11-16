@@ -7,11 +7,11 @@ pipeline {
     	} 
     }
     stages {
-		stage ('Upstream build') {
-			steps {
-				build job: 'iubar-db'
-			}
-		}
+		// stage ('Upstream build') {
+		//	steps {
+		//		build job: 'iubar-db'
+		//	}
+		// }
 		stage ('Build') {
             steps {
                 sh 'mvn --batch-mode clean compile'
