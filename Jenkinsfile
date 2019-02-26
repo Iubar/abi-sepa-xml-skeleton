@@ -14,6 +14,7 @@ pipeline {
 		// }
 		stage ('Build') {
             steps {
+            	sh 'printenv'
                 sh 'mvn --batch-mode clean compile'
             }
         }
