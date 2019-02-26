@@ -70,7 +70,7 @@ pipeline {
         }
 		cleanup {
 			cleanWs()
-			dir("${env.WORKSPACE}@tmp") {				
+			dir("\"${env.WORKSPACE}@tmp\"") {				
 				deleteDir()
 			}
         }
