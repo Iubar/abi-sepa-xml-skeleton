@@ -20,7 +20,7 @@ pipeline {
         }
 		stage('Test') {
             steps {
-                sh 'mvn --batch-mode -Djava.io.tmpdir=\"${WORKSPACE}@tmp\" -Djava.awt.headless=true test'
+                sh "mvn --batch-mode -Djava.io.tmpdir='${WORKSPACE}@tmp' -Djava.awt.headless=true test"
             }
             post {
                 always {
