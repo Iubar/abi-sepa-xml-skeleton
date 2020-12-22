@@ -77,26 +77,26 @@ public class XmlSepa {
 	
 	private void initInfoDistinta(Element element_root) {
 		Element elem_grp_hdr = this.doc.createElement("GrpHdr");
-        // elem_grp_hdr.setAttribute("xmlns", "urn:CBI:xsd:CBIPaymentRequest." + VERSION); // TODO: verificare (nella documentazione c'è ma quando viene validato con l'xsd da eccezione)
+        // elem_grp_hdr.setAttribute("xmlns", "urn:CBI:xsd:CBIPaymentRequest." + VERSION); // TODO: verificare (nella documentazione c'Ã¨ ma quando viene validato con l'xsd da eccezione)
         element_root.appendChild(elem_grp_hdr);
 
 		// Identificativo univoco messaggio <MsgId> [Max35Text]
-        // Riferimento assegnato dal Mittente per identificare univocamente la distinta (Messaggio logico); dev'essere univoco a parità di data
-        // creazione e Mittente; si raccomanda di utilizzare il medesimo valore per il campo <PmtInfId>; tale dato verrà riportato sul
-        // corrispondente movimento di addebito che verrà registrato sull’estratto conto. 
-        // Poiché NON è possibile riutilizzare lo stesso identificativo per più distinte, si consiglia di utilizzare valori dinamici calcolati, ad
-        // esempio, sulla base di data e ora che ne garantiscono l'univocità, come ad esempio “DistintaXml-080413-18.19”; evitare invece di
-        // inserire un valore statico come potrebbe essere il nome dell’azienda.
+        // Riferimento assegnato dal Mittente per identificare univocamente la distinta (Messaggio logico); dev'essere univoco a paritÃ  di data
+        // creazione e Mittente; si raccomanda di utilizzare il medesimo valore per il campo <PmtInfId>; tale dato verrÃ  riportato sul
+        // corrispondente movimento di addebito che verrÃ  registrato sullâ€™estratto conto. 
+        // PoichÃ© NON Ã¨ possibile riutilizzare lo stesso identificativo per piÃ¹ distinte, si consiglia di utilizzare valori dinamici calcolati, ad
+        // esempio, sulla base di data e ora che ne garantiscono l'univocitÃ , come ad esempio â€œDistintaXml-080413-18.19â€�; evitare invece di
+        // inserire un valore statico come potrebbe essere il nome dellâ€™azienda.
         elem_grp_hdr.appendChild(this.createElement("MsgId", this.identificativo));
         
-        // Data e Ora di Creazione <CreDtTm> [ISO DateTime, es. “2013-04-08T18:19:00+01:00”]
+        // Data e Ora di Creazione <CreDtTm> [ISO DateTime, es. â€œ2013-04-08T18:19:00+01:00â€�]
         elem_grp_hdr.appendChild(this.createElement("CreDtTm", this.getTimeStampIso()));
         
         // 	Numero transazioni incluse nella distinta <NbOfTxs> [Max15NumericText]
         elem_grp_hdr.appendChild(this.createElement("NbOfTxs", "2")); // TODO: valorizzare
         
-        // Totale importi delle transazioni incluse nelle distinta <CtrlSum> [DecimalNumber es “180.51”].
-        // L'importo deve essere compreso tra 0.01 e 999999999999999.99; la parte decimale deve essere max di 2 cifre ma può essere
+        // Totale importi delle transazioni incluse nelle distinta <CtrlSum> [DecimalNumber es â€œ180.51â€�].
+        // L'importo deve essere compreso tra 0.01 e 999999999999999.99; la parte decimale deve essere max di 2 cifre ma puÃ² essere
         // anche assente; come separatore decimale deve essere utilizzato il punto.
         elem_grp_hdr.appendChild(this.createElement("CtrlSum", "180.51")); // TODO: valorizzare
                  
@@ -116,21 +116,21 @@ public class XmlSepa {
         elem_org_id.appendChild(elem_othr);
         
         // Codice CUC azienda mittente <OrgId><Othr><Id> [8Text]
-        // Codice Unico CBI, già assegnato a ciascuna azienda; sostituisce il codice SIA e può essere richiesto alla vostra filiale.
+        // Codice Unico CBI, giÃ  assegnato a ciascuna azienda; sostituisce il codice SIA e puÃ² essere richiesto alla vostra filiale.
         elem_othr.appendChild(this.createElement("Id", "TODO"));
         elem_othr.appendChild(this.createElement("Issr", "CBI")); // TODO: corretto?
 	}
 	
 	private void initInfoContabili(Element element_root) {
 		Element elem_pmt_inf = this.doc.createElement("PmtInf");
-        // elem_pmt_inf.setAttribute("xmlns", "urn:CBI:xsd:CBIPaymentRequest." + VERSION); // TODO: verificare (nella documentazione c'è ma quando viene validato con l'xsd da eccezione)
+        // elem_pmt_inf.setAttribute("xmlns", "urn:CBI:xsd:CBIPaymentRequest." + VERSION); // TODO: verificare (nella documentazione c'Ã¨ ma quando viene validato con l'xsd da eccezione)
         element_root.appendChild(elem_pmt_inf);
         
         // Identificativo informazioni di addebito < PmtInfId> [Max35Text]			
 		// Stesso valore contenuto in <MsgId>
         elem_pmt_inf.appendChild(this.createElement("PmtInfId", this.identificativo));
         
-        ///////////////////// TODO : chiarire questo blocco, non è documentato
+        ///////////////////// TODO : chiarire questo blocco, non Ã¨ documentato
         elem_pmt_inf.appendChild(this.createElement("PmtMtd", "TRF"));
         
         Element elem_pmt_tp_inf = this.doc.createElement("PmtTpInf");
@@ -145,14 +145,14 @@ public class XmlSepa {
 
         ///////////////////////////////////////////
         
-        // Data di esecuzione richiesta <ReqdExctnDt> [ISODate, es. “2013-04-09”]
+        // Data di esecuzione richiesta <ReqdExctnDt> [ISODate, es. â€œ2013-04-09â€�]
         elem_pmt_inf.appendChild(this.createElement("ReqdExctnDt", this.getDataRichiesta()));
         
         Element elem_dbtr = this.doc.createElement("Dbtr");
         elem_pmt_inf.appendChild(elem_dbtr);
         
 		// Nome azienda ordinante <Dbtr> <Nm> [Max70Text]			
-		// Nome dell’azianda titolare del conto corrente di addebito
+		// Nome dellâ€™azianda titolare del conto corrente di addebito
         elem_dbtr.appendChild(this.createElement("Nm", "TODO"));
         
         Element elem_id = this.doc.createElement("Id");
@@ -196,7 +196,7 @@ public class XmlSepa {
 
 	private void initDisposizioni(Element element_root) {
 		Element elem_inf = this.doc.createElement("CdtTrfTxInf");
-        // elem_inf.setAttribute("xmlns", "urn:CBI:xsd:CBIPaymentRequest." + VERSION); // TODO: verificare (nella documentazione c'è ma quando viene validato con l'xsd da eccezione)
+        // elem_inf.setAttribute("xmlns", "urn:CBI:xsd:CBIPaymentRequest." + VERSION); // TODO: verificare (nella documentazione c'Ã¨ ma quando viene validato con l'xsd da eccezione)
         element_root.appendChild(elem_inf);
         
         Element elem_pmt_id = this.doc.createElement("PmtId");
@@ -204,8 +204,8 @@ public class XmlSepa {
         
 		// Progressivo disposizione <InstrId> [Max35Text]
 		// Identificativo univoco, a livello di distinta, assegnato all'istruzione dal Mittente nei confronti della sua Banca; si consiglia di utilizzare
-		// una numerazione sequenziale (1,2,3,…): la prima disposizione sarà quindi caratterizzata dal valore 1, la seconda dal valore 2,
-        // la terza dal valore 3, …
+		// una numerazione sequenziale (1,2,3,â€¦): la prima disposizione sarÃ  quindi caratterizzata dal valore 1, la seconda dal valore 2,
+        // la terza dal valore 3, â€¦
         elem_pmt_id.appendChild(this.createElement("InstrId", "TODO"));
         
         // Identificativo end-to-end <EndToEndId> [Max35Text]
@@ -221,16 +221,16 @@ public class XmlSepa {
         
         // Causale bancaria (category purpose) <PmtTpInf> <CtgyPurp> <Cd> [4Text]
         // Identifica la causale interbancaria, basata su un set predefinito di categorie; obbligatorio se IBAN c/c di accredito riferito ad IT.
-        // Utilizzare “SUPP” per bonifici generici, “SALA” per stipendi, “INTC” per giroconti/girofondi;
-        // La lista completa dei codici è disponibile all'indirizzo: http://www.iso20022.org/external_code_list.page (“External Code Lists spreadsheet” foglio “4 CategoryPurpose”).
+        // Utilizzare â€œSUPPâ€� per bonifici generici, â€œSALAâ€� per stipendi, â€œINTCâ€� per giroconti/girofondi;
+        // La lista completa dei codici Ã¨ disponibile all'indirizzo: http://www.iso20022.org/external_code_list.page (â€œExternal Code Lists spreadsheetâ€� foglio â€œ4 CategoryPurposeâ€�).
         elem_ctgy_purp.appendChild(this.createElement("Cd", "SALA")); // TODO: corretto?
         
         Element elem_amt = this.doc.createElement("Amt");
         elem_inf.appendChild(elem_amt);
         
         // Divisa e importo <Amt> <InstdAmt> [ActiveOrHistoricCurrencyAndAmount]
-        // E’ consentito indicare come divisa solo EUR, l'importo deve essere compreso tra 0.01 e 999999999.99; la parte decimale
-        // deve essere max di 2 cifre ma può essere anche assente; come separatore decimale deve essere utilizzato il punto.
+        // Eâ€™ consentito indicare come divisa solo EUR, l'importo deve essere compreso tra 0.01 e 999999999.99; la parte decimale
+        // deve essere max di 2 cifre ma puÃ² essere anche assente; come separatore decimale deve essere utilizzato il punto.
         elem_amt.appendChild(this.createElement("InstdAmt", "TODO"));
         elem_amt.setAttribute("Ccy", "EUR");
         
@@ -254,8 +254,8 @@ public class XmlSepa {
         elem_inf.appendChild(elem_rmt_inf);
         
         // Informazioni/Causale <RmtInf> <Ustrd> [Max140Text]
-        // Informazioni sul pagamento comunicate dall’ordinante al beneficiario (Remittance Information); ad esempio “Pagamento
-        // fattura 10 del 13/03/12”, “Stipendio mese di gennaio”
+        // Informazioni sul pagamento comunicate dallâ€™ordinante al beneficiario (Remittance Information); ad esempio â€œPagamento
+        // fattura 10 del 13/03/12â€�, â€œStipendio mese di gennaioâ€�
         elem_rmt_inf.appendChild(this.createElement("Ustrd", "TODO"));
 	}
 	
@@ -267,21 +267,21 @@ public class XmlSepa {
 	}
 	
 	private String getIdentificativo() {
-		DateFormat date_format = new SimpleDateFormat("ddMMYY-HH.mm", Locale.ITALIAN);
+		DateFormat date_format = new SimpleDateFormat("ddMMYY-HH.mm", Locale.ITALY);
 		Date date = new Date();
 		
 		return "DistintaXml-" + date_format.format(date);
 	}
 	
 	private String getTimeStampIso() {
-		SimpleDateFormat iso_date_format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX", Locale.ITALIAN);
+		SimpleDateFormat iso_date_format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX", Locale.ITALY);
 		Date date = new Date();
 		
 		return iso_date_format.format(date);
 	}
 	
 	private String getDataRichiesta() {
-		SimpleDateFormat iso_date_format = new SimpleDateFormat("yyyy-MM-dd", Locale.ITALIAN);
+		SimpleDateFormat iso_date_format = new SimpleDateFormat("yyyy-MM-dd", Locale.ITALY);
 		Date date = new Date();
 		
 		return iso_date_format.format(date);
