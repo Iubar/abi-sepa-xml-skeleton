@@ -33,7 +33,14 @@ pipeline {
         }
         stage('Analyze') {
             steps {
-                sh 'sonar-scanner'
+				sh '''
+					echo "SKIP_SONARQUBE: ${SKIP_SONARQUBE}"
+					if [ $SKIP_SONARQUBE = true ]; then												
+						echo "Skipping sonar-scanner analysis"
+            		else
+               			sonar-scanner
+                	fi
+				'''						
             }
         }
     }
